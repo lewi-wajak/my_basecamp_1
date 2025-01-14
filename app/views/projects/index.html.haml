@@ -1,12 +1,8 @@
-Projects #index
+<h1>Projects #New</h1>
 
-= link_to "New Project", new_project_path 
+= link_to "New Project", new_project_path
 %br
 
-- @Projects.each do |project|
+- @projects.each do |project|
     = link_to project.name, project_path(project)
     %br
-
-
-
-

@@ -20,6 +20,17 @@ gem "jbuilder"
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
 
+
+gem 'devise'
+gem 'haml'
+
+gem 'simple_form'
+gem 'bootstrap', '~> 5.3'
+
+gem 'sassc-rails'
+
+
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 
@@ -27,15 +38,6 @@ gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem "solid_cache"
 gem "solid_queue"
 gem "solid_cable"
-
-
-gem 'devise'
-
-gem 'haml'
-
-gem 'haml-rails'
-
-gem 'simple_form'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false

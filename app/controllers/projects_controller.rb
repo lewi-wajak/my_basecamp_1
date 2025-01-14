@@ -2,7 +2,7 @@ class ProjectsController < ApplicationController
     before_action :authenticate_user!
 
     def index
-        @Projects = Project.all
+        @projects = Project.all
     end
 
     def show
@@ -23,10 +23,11 @@ class ProjectsController < ApplicationController
     end
 
     def edit
-    end
+    end 
 
     def update
     end
+
 
     protected
 
