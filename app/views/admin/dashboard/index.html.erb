@@ -1,0 +1,34 @@
+<h1>Admin Dashboard</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Role</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+        <td>
+          <% if user.has_role?(:admin) %>
+            <span style="color: green;">Admin</span>
+          <% else %>
+            <span>Regular User</span>
+          <% end %>
+        </td>
+        <td>
+          <% unless user == current_user %> <!-- Prevent self-demotion -->
+            <% if user.has_role?(:admin) %>
+              <%= button_to "Demote", admin_demote_user_path(user), method: :post, data: { confirm: "Are you sure?" } %>
+            <% else %>
+              <%= button_to "Promote to Admin", admin_promote_user_path(user), method: :post %>
+            <% end %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

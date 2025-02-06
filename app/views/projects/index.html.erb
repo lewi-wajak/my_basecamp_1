@@ -1,16 +1,30 @@
-<p style="color: green"><%= notice %></p>
+<p class="text-success"><%= notice %></p>
 
 <% content_for :title, "Projects" %>
 
-<h1>Projects</h1>
+<div class="container mt-4">
+  <h1 class="mb-3">Projects</h1>
 
-<div id="projects">
-  <% @projects.each do |project| %>
-    <%= render project %>
-    <p>
-      <%= link_to "Show this project", project %>
-    </p>
-  <% end %>
+  <table class="table table-striped table-hover table-bordered">
+    <thead class="table-dark">
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @projects.each do |project| %>
+        <tr id="<%= dom_id project %>">
+          <td><%= project.name %></td>
+          <td><%= project.description %></td>
+          <td>
+            <%= link_to "Show", project, class: "btn btn-primary btn-sm" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= link_to "New Project", new_project_path, class: "btn btn-success" %>
 </div>
-
-<%= link_to "New project", new_project_path %>
